@@ -1,6 +1,6 @@
 # Geometris IOS Resources
 
-# To install framework to your project
+# To install framework to your project from CocoaPods
 
 Add below into your Podfile on Xcode.
 
