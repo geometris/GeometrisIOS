@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		814FD2902099190B00F4B198 /* Geometris.h in Headers */ = {isa = PBXBuildFile; fileRef = 814FD28E2099190B00F4B198 /* Geometris.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		814FD2A020991B7200F4B198 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FD29720991B7100F4B198 /* BaseRequest.swift */; };
+		814FD2A120991B7200F4B198 /* AddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FD29820991B7100F4B198 /* AddressResponse.swift */; };
+		814FD2A220991B7200F4B198 /* GeoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FD29920991B7100F4B198 /* GeoData.swift */; };
+		814FD2A320991B7200F4B198 /* UDRVResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FD29A20991B7100F4B198 /* UDRVResponse.swift */; };
+		814FD2A420991B7200F4B198 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FD29B20991B7100F4B198 /* BaseResponse.swift */; };
+		814FD2A520991B7200F4B198 /* GeoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FD29C20991B7100F4B198 /* GeoResponse.swift */; };
+		814FD2A620991B7200F4B198 /* OBDMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FD29D20991B7200F4B198 /* OBDMessage.swift */; };
+		814FD2A720991B7200F4B198 /* WQSmartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FD29E20991B7200F4B198 /* WQSmartService.swift */; };
+		814FD2A820991B7200F4B198 /* UnidentifiedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FD29F20991B7200F4B198 /* UnidentifiedEvent.swift */; };
+		814FD2B520991C1000F4B198 /* WherequbeServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FD2B020991C1000F4B198 /* WherequbeServiceDelegate.swift */; };
+		814FD2B620991C1000F4B198 /* WherequbeServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FD2B120991C1000F4B198 /* WherequbeServiceError.swift */; };
+		814FD2B720991C1000F4B198 /* WherequbeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FD2B220991C1000F4B198 /* WherequbeService.swift */; };
+		814FD2B820991C1000F4B198 /* WherequbeServiceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FD2B320991C1000F4B198 /* WherequbeServiceState.swift */; };
+		814FD2B920991C1000F4B198 /* Whereqube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FD2B420991C1000F4B198 /* Whereqube.swift */; };
+		814FD2BC20991C2B00F4B198 /* WQExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FD2BA20991C2B00F4B198 /* WQExtensions.swift */; };
+		814FD2BD20991C2B00F4B198 /* CharacteristicReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FD2BB20991C2B00F4B198 /* CharacteristicReader.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		814FD28B2099190B00F4B198 /* Geometris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Geometris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		814FD28E2099190B00F4B198 /* Geometris.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Geometris.h; sourceTree = "<group>"; };
+		814FD28F2099190B00F4B198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		814FD29720991B7100F4B198 /* BaseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseRequest.swift; path = Geometris/Core/BaseRequest.swift; sourceTree = SOURCE_ROOT; };
+		814FD29820991B7100F4B198 /* AddressResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddressResponse.swift; path = Geometris/Core/AddressResponse.swift; sourceTree = SOURCE_ROOT; };
+		814FD29920991B7100F4B198 /* GeoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeoData.swift; path = Geometris/Core/GeoData.swift; sourceTree = SOURCE_ROOT; };
+		814FD29A20991B7100F4B198 /* UDRVResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UDRVResponse.swift; path = Geometris/Core/UDRVResponse.swift; sourceTree = SOURCE_ROOT; };
+		814FD29B20991B7100F4B198 /* BaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseResponse.swift; path = Geometris/Core/BaseResponse.swift; sourceTree = SOURCE_ROOT; };
+		814FD29C20991B7100F4B198 /* GeoResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeoResponse.swift; path = Geometris/Core/GeoResponse.swift; sourceTree = SOURCE_ROOT; };
+		814FD29D20991B7200F4B198 /* OBDMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OBDMessage.swift; path = Geometris/Core/OBDMessage.swift; sourceTree = SOURCE_ROOT; };
+		814FD29E20991B7200F4B198 /* WQSmartService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WQSmartService.swift; path = Geometris/Core/WQSmartService.swift; sourceTree = SOURCE_ROOT; };
+		814FD29F20991B7200F4B198 /* UnidentifiedEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnidentifiedEvent.swift; path = Geometris/Core/UnidentifiedEvent.swift; sourceTree = SOURCE_ROOT; };
+		814FD2B020991C1000F4B198 /* WherequbeServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WherequbeServiceDelegate.swift; path = Geometris/WherequbeService/WherequbeServiceDelegate.swift; sourceTree = SOURCE_ROOT; };
+		814FD2B120991C1000F4B198 /* WherequbeServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WherequbeServiceError.swift; path = Geometris/WherequbeService/WherequbeServiceError.swift; sourceTree = SOURCE_ROOT; };
+		814FD2B220991C1000F4B198 /* WherequbeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WherequbeService.swift; path = Geometris/WherequbeService/WherequbeService.swift; sourceTree = SOURCE_ROOT; };
+		814FD2B320991C1000F4B198 /* WherequbeServiceState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WherequbeServiceState.swift; path = Geometris/WherequbeService/WherequbeServiceState.swift; sourceTree = SOURCE_ROOT; };
+		814FD2B420991C1000F4B198 /* Whereqube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Whereqube.swift; path = Geometris/WherequbeService/Whereqube.swift; sourceTree = SOURCE_ROOT; };
+		814FD2BA20991C2B00F4B198 /* WQExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WQExtensions.swift; path = Geometris/Helpers/WQExtensions.swift; sourceTree = SOURCE_ROOT; };
+		814FD2BB20991C2B00F4B198 /* CharacteristicReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacteristicReader.swift; path = Geometris/Helpers/CharacteristicReader.swift; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		814FD2872099190B00F4B198 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		814FD2812099190B00F4B198 = {
+			isa = PBXGroup;
+			children = (
+				814FD28D2099190B00F4B198 /* Geometris */,
+				814FD28C2099190B00F4B198 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		814FD28C2099190B00F4B198 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				814FD28B2099190B00F4B198 /* Geometris.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		814FD28D2099190B00F4B198 /* Geometris */ = {
+			isa = PBXGroup;
+			children = (
+				814FD2AF20991BFC00F4B198 /* WherequbeService */,
+				814FD2AD20991B8C00F4B198 /* Helpers */,
+				814FD29620991B5600F4B198 /* Core */,
+				814FD28E2099190B00F4B198 /* Geometris.h */,
+				814FD28F2099190B00F4B198 /* Info.plist */,
+			);
+			path = Geometris;
+			sourceTree = "<group>";
+		};
+		814FD29620991B5600F4B198 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				814FD29820991B7100F4B198 /* AddressResponse.swift */,
+				814FD29720991B7100F4B198 /* BaseRequest.swift */,
+				814FD29B20991B7100F4B198 /* BaseResponse.swift */,
+				814FD29920991B7100F4B198 /* GeoData.swift */,
+				814FD29C20991B7100F4B198 /* GeoResponse.swift */,
+				814FD29D20991B7200F4B198 /* OBDMessage.swift */,
+				814FD29A20991B7100F4B198 /* UDRVResponse.swift */,
+				814FD29F20991B7200F4B198 /* UnidentifiedEvent.swift */,
+				814FD29E20991B7200F4B198 /* WQSmartService.swift */,
+			);
+			name = Core;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		814FD2AD20991B8C00F4B198 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				814FD2BB20991C2B00F4B198 /* CharacteristicReader.swift */,
+				814FD2BA20991C2B00F4B198 /* WQExtensions.swift */,
+			);
+			name = Helpers;
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		814FD2AF20991BFC00F4B198 /* WherequbeService */ = {
+			isa = PBXGroup;
+			children = (
+				814FD2B420991C1000F4B198 /* Whereqube.swift */,
+				814FD2B220991C1000F4B198 /* WherequbeService.swift */,
+				814FD2B020991C1000F4B198 /* WherequbeServiceDelegate.swift */,
+				814FD2B120991C1000F4B198 /* WherequbeServiceError.swift */,
+				814FD2B320991C1000F4B198 /* WherequbeServiceState.swift */,
+			);
+			name = WherequbeService;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		814FD2882099190B00F4B198 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				814FD2902099190B00F4B198 /* Geometris.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		814FD28A2099190B00F4B198 /* Geometris */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 814FD2932099190B00F4B198 /* Build configuration list for PBXNativeTarget "Geometris" */;
+			buildPhases = (
+				814FD2862099190B00F4B198 /* Sources */,
+				814FD2872099190B00F4B198 /* Frameworks */,
+				814FD2882099190B00F4B198 /* Headers */,
+				814FD2892099190B00F4B198 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Geometris;
+			productName = Geometris;
+			productReference = 814FD28B2099190B00F4B198 /* Geometris.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		814FD2822099190B00F4B198 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = geometris;
+				TargetAttributes = {
+					814FD28A2099190B00F4B198 = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 814FD2852099190B00F4B198 /* Build configuration list for PBXProject "Geometris" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 814FD2812099190B00F4B198;
+			productRefGroup = 814FD28C2099190B00F4B198 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				814FD28A2099190B00F4B198 /* Geometris */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		814FD2892099190B00F4B198 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		814FD2862099190B00F4B198 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				814FD2B920991C1000F4B198 /* Whereqube.swift in Sources */,
+				814FD2BD20991C2B00F4B198 /* CharacteristicReader.swift in Sources */,
+				814FD2B620991C1000F4B198 /* WherequbeServiceError.swift in Sources */,
+				814FD2A420991B7200F4B198 /* BaseResponse.swift in Sources */,
+				814FD2BC20991C2B00F4B198 /* WQExtensions.swift in Sources */,
+				814FD2B820991C1000F4B198 /* WherequbeServiceState.swift in Sources */,
+				814FD2A020991B7200F4B198 /* BaseRequest.swift in Sources */,
+				814FD2A520991B7200F4B198 /* GeoResponse.swift in Sources */,
+				814FD2A320991B7200F4B198 /* UDRVResponse.swift in Sources */,
+				814FD2A220991B7200F4B198 /* GeoData.swift in Sources */,
+				814FD2B520991C1000F4B198 /* WherequbeServiceDelegate.swift in Sources */,
+				814FD2A120991B7200F4B198 /* AddressResponse.swift in Sources */,
+				814FD2A820991B7200F4B198 /* UnidentifiedEvent.swift in Sources */,
+				814FD2A620991B7200F4B198 /* OBDMessage.swift in Sources */,
+				814FD2B720991C1000F4B198 /* WherequbeService.swift in Sources */,
+				814FD2A720991B7200F4B198 /* WQSmartService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		814FD2912099190B00F4B198 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		814FD2922099190B00F4B198 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		814FD2942099190B00F4B198 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = CV76PF76M7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Geometris/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.geometris.Geometris;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		814FD2952099190B00F4B198 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = CV76PF76M7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Geometris/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.geometris.Geometris;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		814FD2852099190B00F4B198 /* Build configuration list for PBXProject "Geometris" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				814FD2912099190B00F4B198 /* Debug */,
+				814FD2922099190B00F4B198 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		814FD2932099190B00F4B198 /* Build configuration list for PBXNativeTarget "Geometris" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				814FD2942099190B00F4B198 /* Debug */,
+				814FD2952099190B00F4B198 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 814FD2822099190B00F4B198 /* Project object */;
+}
