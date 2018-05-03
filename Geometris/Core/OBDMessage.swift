@@ -137,12 +137,6 @@ class OBDMessage {
             while counter < sTotalPacket {
                 let sData : Data = packetList[counter]!
                 var sValue = UnsafeMutablePointer<UInt8>(mutating: (sData as NSData).bytes.bindMemory(to: UInt8.self, capacity: sData.count))
-                print("saved value: \(sValue[0]) :")
-                var st1 = String()
-                for i in 1...sData.count{
-                    st1 = st1 + String(format:" %02X",sValue[i-1])
-                }
-                print(st1)
                 let pCount = CharacteristicReader.readUInt8Value(ptr: &sValue)
                 switch(pCount)
                 {
@@ -168,22 +162,22 @@ class OBDMessage {
                         
                     }
                     geoData.VIN = vinBuffer;
-                    print("VIN is " + geoData.VIN)
+                    
                     break
                 case 2:
                     var rValue = Double(CharacteristicReader.readSInt32Value(ptr: &sValue))
                     if rValue != -1 {
                         geoData.odometer = rValue
                     }
-                    print("odometer is \(geoData.odometer)")
+                    
                     
                     rValue = Double(CharacteristicReader.readSInt32Value(ptr: &sValue))
                     setRPM(withRPM: rValue, withRPMTime: Date(), withGeoData: geoData)
                     /*if rValue != -1 {
                         geoData.RPM = rValue
                     }*/
-                    print("RPM is \(rValue)")
-                    print("RPM is \(geoData.RPM)")
+                    
+                    
                     
                     rValue = Double(CharacteristicReader.readSInt32Value(ptr: &sValue))
                     
@@ -192,7 +186,7 @@ class OBDMessage {
                         geoData.speed = rValue
                         
                     }
-                    print("Speed is \(geoData.speed)")
+                    
                     break
                     
                 case 3:
@@ -214,7 +208,7 @@ class OBDMessage {
                     if rValue != -1 {
                         geoData.engine_hours = rValue/10
                     }
-                    print("Engine Hours is \(geoData.engine_hours)")
+                    
                     break
                 default: break
                     
@@ -225,7 +219,6 @@ class OBDMessage {
         }
         else if getProtocolId() == 1 {
             var longData : Data = Data()
-            print("Total Packet saved: \(sTotalPacket)");
             for i in 0..<sTotalPacket
             {
                 let sData : Data = packetList[i]!
@@ -244,15 +237,7 @@ class OBDMessage {
             }
             let longDataLength = longData.count
             var sValue = UnsafeMutablePointer<UInt8>(mutating: (longData as NSData).bytes.bindMemory(to: UInt8.self, capacity: longData.count))
-            print("\(sValue[0]) :")
-            var st = String()
-            if longData.count > 1 {
-                for i in 1...longData.count{
-                    st = st + String(format:" %02X",sValue[i-1])
-                    
-                }
-            }
-            print(st)
+            
             let unidentifiedEvent = UnidentifiedEvent()
             var vinBuffer: String = ""
             var byteIndex = 0;
@@ -285,7 +270,7 @@ class OBDMessage {
                     let tmpVIN = String(data: Data(vinBytes), encoding: .utf8)
                     vinBuffer = tmpVIN!;
                     geoData.VIN = vinBuffer;
-                    print("VIN is " + vinBuffer)
+                    
                     break
                     case 0x02:
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
@@ -295,7 +280,7 @@ class OBDMessage {
                         if odometer != -1 {
                             geoData.odometer = odometer
                         }
-                        print("odometer is \(odometer)")
+                        
                         byteIndex+=4
                         
                         break
@@ -308,8 +293,8 @@ class OBDMessage {
                         /*if RPM != -1 {
                             geoData.RPM = RPM
                         }*/
-                        print("RPM is \(RPM)")
-                        print("RPM is \(geoData.RPM)")
+                        
+                        
                         byteIndex+=4
                         break
                     case 0x04:
@@ -323,7 +308,7 @@ class OBDMessage {
                         if speed != -1 {
                             geoData.speed = speed
                         }
-                        print("Speed is \(speed)")
+                        
                         byteIndex+=4
                         break
                     case 0x06:
@@ -393,7 +378,7 @@ class OBDMessage {
                         var latitude = Double(fvalue)
                         latitude /= 100000
                         geoData.latitude = latitude
-                        print("latitude is \(latitude)")
+                        
                         byteIndex+=4
                         break
                     case 0x14:
@@ -404,7 +389,7 @@ class OBDMessage {
                         var longitude = Double(fvalue)
                         longitude /= 100000
                         geoData.longitude = longitude
-                        print("longitude is \(longitude)")
+                        //print("longitude is \(longitude)")
                         byteIndex+=4
                         break
                     case 0x015:
@@ -419,7 +404,7 @@ class OBDMessage {
                             let gpsTime = Date(timeIntervalSince1970: locationTimeStamp)
                             geoData.locationTimeStamp = gpsTime
                         }
-                        print("Location TimeStamp is \(locationTimeStamp)")
+                        //print("Location TimeStamp is \(locationTimeStamp)")
                         byteIndex+=4
                         break
                     
@@ -443,7 +428,7 @@ class OBDMessage {
                             let dtime = Date(timeIntervalSince1970: tstamp)
                             unidentifiedEvent.timestamp = dtime
                         }
-                        print("Unidentified TimeStamp is \(tstamp)")
+                        //print("Unidentified TimeStamp is \(tstamp)")
                         byteIndex+=4
                         break
                     case 0x16:
@@ -475,7 +460,7 @@ class OBDMessage {
                         let fvalue: Int32 = Int32(bitPattern: value)
                         let odometer = Double(fvalue)
                         unidentifiedEvent.odometer = odometer
-                        print("unidentified odometer is \(odometer)")
+                        //print("unidentified odometer is \(odometer)")
                         byteIndex+=4
                         break
                     case 0x1B:
@@ -485,7 +470,7 @@ class OBDMessage {
                         var latitude = Double(fvalue)
                         latitude /= 100000
                         unidentifiedEvent.latitude = latitude
-                        print("latitude is \(latitude)")
+                        //print("latitude is \(latitude)")
                         byteIndex+=4
                         break
                     case 0x1C:
@@ -496,7 +481,7 @@ class OBDMessage {
                         var longitude = Double(fvalue)
                         longitude /= 100000
                         unidentifiedEvent.longitude = longitude
-                        print("longitude is \(longitude)")
+                        //print("longitude is \(longitude)")
                         byteIndex+=4
                         break
                     case 0x1D:
@@ -511,7 +496,7 @@ class OBDMessage {
                             let gpsTime = Date(timeIntervalSince1970: locationTimeStamp)
                             unidentifiedEvent.gpsTimeStamp = gpsTime
                         }
-                        print("Unidentified Location TimeStamp is \(locationTimeStamp)")
+                        //print("Unidentified Location TimeStamp is \(locationTimeStamp)")
                         byteIndex+=4
                         break
                         
@@ -533,12 +518,17 @@ class OBDMessage {
                 geoData.unidentifiedEventArray.append(unidentifiedEvent)
             }
         }
-            
-            let dateFormater = DateFormatter()
-            dateFormater.dateFormat = "MM-dd-yyyy HH:mm:ss"
-            let datestr = dateFormater.string(from: geoData.date)
-            print("Date is \(datestr)")
-            return geoData
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        let datestr = dateFormater.string(from: geoData.date)
+        var st = String()
+        st = st + "vi:" + geoData.VIN + " od:" + String(geoData.odometer) + " r:" + String(geoData.RPM)
+        st = st + " sp:" + String(geoData.speed) + " ehr:" + String(geoData.engine_hours)
+        st = st + " lt:" + String(geoData.latitude) + " ln:" + String(geoData.longitude)
+        st = st + " date:" + datestr
+        
+        print(st)
+        return geoData
         }
         
     }
