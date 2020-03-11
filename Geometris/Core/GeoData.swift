@@ -15,6 +15,7 @@ public class GeoData: NSObject  {
     public internal(set) var engine_hours                        : Double
     public internal(set) var speed                               : Double
     public internal(set) var RPM                                 : Double
+    public internal(set) var fuelLevel                           : Double
     public internal(set) var longitude                           : Double
     public internal(set) var latitude                            : Double
     public internal(set) var locationTimeStamp                   : Date
@@ -27,6 +28,7 @@ public class GeoData: NSObject  {
         engine_hours = 0
         speed = 0
         RPM = 0
+        fuelLevel = 0
         longitude = 0
         latitude = 0
         locationTimeStamp = Date(timeIntervalSince1970: 0)
