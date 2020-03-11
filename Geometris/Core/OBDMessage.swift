@@ -191,6 +191,10 @@ class OBDMessage {
                     
                 case 3:
                     
+                    let rValue = Double(CharacteristicReader.readSInt32Value(ptr: &sValue))
+                    if rValue != -1{
+                        geoData.fuelLevel = rValue
+                    }
                     
                     break
                     
@@ -235,32 +239,30 @@ class OBDMessage {
                 longData.append(subSData)
                 
             }
-            let longDataLength = longData.count
             var sValue = UnsafeMutablePointer<UInt8>(mutating: (longData as NSData).bytes.bindMemory(to: UInt8.self, capacity: longData.count))
+            
+            let offsetPointer = sValue+longData.count
             
             let unidentifiedEvent = UnidentifiedEvent()
             var vinBuffer: String = ""
-            var byteIndex = 0;
             var parseexit : Bool = false
             sValue = sValue.advanced(by: 2)
-            byteIndex+=2
-            while(byteIndex < longDataLength)
+            
+            while(sValue < offsetPointer)
             {
                 
                 let paramIndex = CharacteristicReader.readUInt16Value(ptr: &sValue)
                 //paramIndex = paramIndex;
-                byteIndex+=2
                 switch(paramIndex)
                 {
                 case 0x01:
                     let vinlength = Int(CharacteristicReader.readSInt16Value(ptr: &sValue))
-                    byteIndex += 2
+                    
                     var vinBytes :[UInt8]
-                    var vIndex = byteIndex
+                    var vIndex = 0
                     var i = 0
-                    byteIndex += (vinlength*2);
                     vinBytes = [UInt8]()
-                    while vIndex < byteIndex {
+                    while vIndex < (vinlength*2) {
                         vinBytes.append(CharacteristicReader.readUInt8Value(ptr: &sValue))
                         sValue = sValue.advanced(by: 1)
                         vIndex += 2
@@ -280,9 +282,7 @@ class OBDMessage {
                         if odometer != -1 {
                             geoData.odometer = odometer
                         }
-                        
-                        byteIndex+=4
-                        
+        
                         break
                     case 0x03:
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
@@ -294,11 +294,9 @@ class OBDMessage {
                             geoData.RPM = RPM
                         }*/
                         
-                        
-                        byteIndex+=4
                         break
                     case 0x04:
-                        byteIndex+=4
+                        sValue = sValue.advanced(by: 4)
                         break
                     case 0x05:
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
@@ -309,51 +307,62 @@ class OBDMessage {
                             geoData.speed = speed
                         }
                         
-                        byteIndex+=4
+                        
                         break
+                    
                     case 0x06:
-                        byteIndex+=4
+                        var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
+                        value =   CharacteristicReader.fixUint32Endian(withUInt: value)
+                        let fvalue: Int32 = Int32(bitPattern: value)
+                        let fuelLevel = Double(fvalue)
+                        if fuelLevel != -1 {
+                            geoData.fuelLevel = fuelLevel
+                        }
+                        
                         break
                     case 0x07:
-                        byteIndex+=4
+                        sValue = sValue.advanced(by: 4)
                         break
                     case 0x08:
                         
-                        byteIndex+=4
+                        sValue = sValue.advanced(by: 4)
+                        break
                     case 0x09:
                         
-                        byteIndex+=4
+                        sValue = sValue.advanced(by: 4)
                         break
-                        
+                    
                     case 0x0A:
                         
-                        byteIndex+=4
+                        sValue = sValue.advanced(by: 4)
+                        break
                     case 0x0B:
                         
-                        byteIndex+=4
+                        sValue = sValue.advanced(by: 4)
                         break
                     case 0x0C:
                         
-                        byteIndex+=4
+                        sValue = sValue.advanced(by: 4)
                         break
                     case 0x0D:
                         
                         //print("MIL Status is \(mil_status)")
-                        byteIndex+=4
+                        sValue = sValue.advanced(by: 4)
                         break
                     case 0x0E:
                         
-                        byteIndex+=4
+                        sValue = sValue.advanced(by: 4)
                         break
+            
                     case 0x0F:
                         var serialLength = Int(CharacteristicReader.readSInt16Value(ptr: &sValue))
                         serialLength *= 2
                         sValue = sValue.advanced(by: serialLength)
-                        byteIndex += (2+serialLength)
                         
+                        break
                     case 0x10:
                         
-                        byteIndex+=4
+                        sValue = sValue.advanced(by: 4)
                         break
                     case 0x11:
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
@@ -365,11 +374,11 @@ class OBDMessage {
                             engine_hours/=10
                             geoData.engine_hours = engine_hours
                         }
-                        byteIndex+=4
+                        
                         break
                     case 0x12:
                         
-                        byteIndex+=4
+                        sValue = sValue.advanced(by: 4)
                         break
                     case 0x013:
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
@@ -379,7 +388,7 @@ class OBDMessage {
                         latitude /= 100000
                         geoData.latitude = latitude
                         
-                        byteIndex+=4
+                        
                         break
                     case 0x14:
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
@@ -390,7 +399,7 @@ class OBDMessage {
                         longitude /= 100000
                         geoData.longitude = longitude
                         //print("longitude is \(longitude)")
-                        byteIndex+=4
+                        
                         break
                     case 0x015:
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
@@ -405,17 +414,17 @@ class OBDMessage {
                             geoData.locationTimeStamp = gpsTime
                         }
                         //print("Location TimeStamp is \(locationTimeStamp)")
-                        byteIndex+=4
+                        
                         break
-                    
+                
                 case 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E:
                     switch (paramIndex) {
                     case 0x1E:
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
                         value =   CharacteristicReader.fixUint32Endian(withUInt: value);
                         geoData.totalUdrvEvents = Int(value)
-                        byteIndex+=4
                         break
+
                     case 0x17:
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
                         value =   CharacteristicReader.fixUint32Endian(withUInt: value)
@@ -429,13 +438,14 @@ class OBDMessage {
                             unidentifiedEvent.timestamp = dtime
                         }
                         //print("Unidentified TimeStamp is \(tstamp)")
-                        byteIndex+=4
                         break
+
                     case 0x16:
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
                         value =   CharacteristicReader.fixUint32Endian(withUInt: value);
                         unidentifiedEvent.reason = Int(value)
                         break
+
                     case 0x18:
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
                         value =   CharacteristicReader.fixUint32Endian(withUInt: value)
@@ -443,17 +453,16 @@ class OBDMessage {
                         var engine_hours = Double(fvalue)
                         engine_hours/=10
                         unidentifiedEvent.engTotalHours = engine_hours
-                        byteIndex+=4
                         break
+
                     case 0x19:
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
                         value =   CharacteristicReader.fixUint32Endian(withUInt: value)
                         let fvalue: Int32 = Int32(bitPattern: value)
                         let speed = Double(fvalue)
                         unidentifiedEvent.vehicleSpeed = speed
-                        
-                        byteIndex+=4
                         break
+
                     case 0x1A:
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
                         value =   CharacteristicReader.fixUint32Endian(withUInt: value)
@@ -461,8 +470,8 @@ class OBDMessage {
                         let odometer = Double(fvalue)
                         unidentifiedEvent.odometer = odometer
                         //print("unidentified odometer is \(odometer)")
-                        byteIndex+=4
                         break
+
                     case 0x1B:
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
                         value =   CharacteristicReader.fixUint32Endian(withUInt: value);
@@ -471,8 +480,8 @@ class OBDMessage {
                         latitude /= 100000
                         unidentifiedEvent.latitude = latitude
                         //print("latitude is \(latitude)")
-                        byteIndex+=4
                         break
+
                     case 0x1C:
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
                         value =   CharacteristicReader.fixUint32Endian(withUInt: value)
@@ -482,8 +491,8 @@ class OBDMessage {
                         longitude /= 100000
                         unidentifiedEvent.longitude = longitude
                         //print("longitude is \(longitude)")
-                        byteIndex+=4
                         break
+
                     case 0x1D:
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
                         value =   CharacteristicReader.fixUint32Endian(withUInt: value)
@@ -497,10 +506,10 @@ class OBDMessage {
                             unidentifiedEvent.gpsTimeStamp = gpsTime
                         }
                         //print("Unidentified Location TimeStamp is \(locationTimeStamp)")
-                        byteIndex+=4
                         break
-                        
+
                     default:
+                        parseexit = true
                         print("default udrv")
                     }
                     
@@ -524,6 +533,7 @@ class OBDMessage {
         var st = String()
         st = st + "vi:" + geoData.VIN + " od:" + String(geoData.odometer) + " r:" + String(geoData.RPM)
         st = st + " sp:" + String(geoData.speed) + " ehr:" + String(geoData.engine_hours)
+        st = st + " fl:" + String(geoData.fuelLevel)
         st = st + " lt:" + String(geoData.latitude) + " ln:" + String(geoData.longitude)
         st = st + " date:" + datestr
         
