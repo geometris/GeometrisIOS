@@ -397,7 +397,7 @@ class OBDMessage {
                     sValue = sValue.advanced(by: 4)
                     break
                 
-                case 0x013:
+                case 0x13:
                     var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
                     value =   CharacteristicReader.fixUint32Endian(withUInt: value);
                     let fvalue: Int32 = Int32(bitPattern: value)
@@ -417,7 +417,7 @@ class OBDMessage {
                     geoData.longitude = longitude
                     //print("longitude is \(longitude)")
                     break
-                case 0x015:
+                case 0x15:
                     var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
                     value =   CharacteristicReader.fixUint32Endian(withUInt: value)
                     var locationTimeStamp: Double
@@ -438,6 +438,7 @@ class OBDMessage {
                         var value = CharacteristicReader.readUInt32Value(ptr: &sValue)
                         value =   CharacteristicReader.fixUint32Endian(withUInt: value);
                         geoData.totalUdrvEvents = Int(value)
+                        print("TUD: \(geoData.totalUdrvEvents)")
                         break
 
                     case 0x17:
