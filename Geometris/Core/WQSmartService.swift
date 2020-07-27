@@ -256,15 +256,21 @@ class WQSmartService: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         }
         
         for characteristic in characteristics {
-            let key = service.uuid.uuidString + characteristic.uuid.uuidString
-            savedCharacteristics[key] = characteristic
+           // let key = service.uuid.uuidString + characteristic.uuid.uuidString
+           // savedCharacteristics[key] = characteristic
             
             switch(characteristic.uuid) {
                 case WQSmartUUID.Characteristics.OBDMeasurementCharacteristics:
+                    let key = WQSmartUUID.Service.OBDService.uuidString + WQSmartUUID.Characteristics.OBDMeasurementCharacteristics.uuidString
+                    savedCharacteristics[key] = characteristic
                     OBDMeasurementCharacteristics = characteristic
                 case WQSmartUUID.Characteristics.OBDDataPointCharacteristics:
+                    let key = WQSmartUUID.Service.OBDService.uuidString + WQSmartUUID.Characteristics.OBDDataPointCharacteristics.uuidString
+                    savedCharacteristics[key] = characteristic
                     OBDDataPointCharacteristics = characteristic
                 case WQSmartUUID.Characteristics.OBDDeviceAddressCharacteristics:
+                    let key = WQSmartUUID.Service.OBDService.uuidString + WQSmartUUID.Characteristics.OBDDeviceAddressCharacteristics.uuidString
+                    savedCharacteristics[key] = characteristic
                     OBDDeviceAddressCharacteristics = characteristic
                 default: ()
             }
