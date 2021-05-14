@@ -284,8 +284,8 @@ class OBDMessage {
                         i+=1
                     }
                     
-                    let tmpVIN = String(data: Data(vinBytes), encoding: .utf8)
-                    vinBuffer = tmpVIN!;
+                    let tmpVIN:String? = String(data: Data(vinBytes), encoding: .utf8)
+                    vinBuffer = tmpVIN ?? "";
                     geoData.VIN = vinBuffer;
                     //print("VIN is " + vinBuffer)
                     break
